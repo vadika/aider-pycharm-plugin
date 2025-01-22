@@ -67,7 +67,14 @@ class AiderToolWindowFactory : ToolWindowFactory {
     private fun startAiderService() {
         try {
             aiderService.start()
-            outputArea.append("Aider started in Terminal window.\n")
+            outputArea.append("Aider started in Terminal window.\n\n")
+            outputArea.append("Common Aider commands:\n")
+            outputArea.append("- /help     Show all available commands\n")
+            outputArea.append("- /edit     Edit a specific file\n")
+            outputArea.append("- /add      Add files to the chat\n")
+            outputArea.append("- /ls       List files in chat\n")
+            outputArea.append("- /undo     Undo last change\n")
+            outputArea.append("- /exit     Exit aider\n\n")
             outputArea.append("Please switch to the Terminal window to interact with Aider.\n")
         } catch (e: Exception) {
             outputArea.append("Error: ${e.message}\n")
