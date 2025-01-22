@@ -26,8 +26,10 @@ class AiderService(private val project: Project) {
             terminal = terminalWidget as? ShellTerminalWidget
                 ?: throw IOException("Failed to create terminal widget")
 
-            // Run aider in the terminal
-            terminal?.executeCommand("aider")
+            // Get settings and run aider in the terminal
+            val settings = AiderSettings.getInstance(project)
+            val command = "aider ${settings.commandLineParameters}".trim()
+            terminal?.executeCommand(command)
         } catch (e: Exception) {
             throw IOException("Failed to start aider: ${e.message}")
         }

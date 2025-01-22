@@ -15,3 +15,24 @@
                     factoryClass="com.aider.pycharm.AiderToolWindowFactory"/>
     </extensions>
 </idea-plugin>
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>com.aider.pycharm</id>
+    <name>Aider Chat</name>
+    <vendor>Your Name</vendor>
+    <description>Aider Chat Integration for PyCharm</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.python</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Aider" secondary="true" icon="AllIcons.General.Modified" anchor="right"
+                    factoryClass="com.aider.pycharm.AiderToolWindowFactory"/>
+        <projectService serviceImplementation="com.aider.pycharm.AiderSettings"/>
+        <projectConfigurable
+                instance="com.aider.pycharm.AiderSettingsConfigurable"
+                displayName="Aider Chat"
+                id="com.aider.pycharm.settings"/>
+    </extensions>
+</idea-plugin>
