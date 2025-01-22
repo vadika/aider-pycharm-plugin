@@ -42,7 +42,10 @@ java {
 intellij {
     version.set("2023.1")
     type.set("PC") // PyCharm Community Edition
-    plugins.set(listOf("python-ce")) // Add Python plugin dependency
+    plugins.set(listOf(
+        "python-ce", // Python plugin dependency
+        "terminal"   // Terminal plugin dependency
+    ))
 }
 
 tasks {
