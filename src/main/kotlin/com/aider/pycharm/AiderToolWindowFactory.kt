@@ -6,6 +6,7 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
 import javax.swing.*
 import java.awt.BorderLayout
+import java.awt.Font
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
 import javax.swing.text.DefaultCaret
@@ -27,6 +28,7 @@ class AiderToolWindowFactory : ToolWindowFactory {
             wrapStyleWord = true
             rows = 20  // Set initial height
             columns = 50  // Set initial width
+            font = Font("Monospaced", Font.PLAIN, 12)
         }
         (outputArea.caret as DefaultCaret).updatePolicy = DefaultCaret.ALWAYS_UPDATE
         
