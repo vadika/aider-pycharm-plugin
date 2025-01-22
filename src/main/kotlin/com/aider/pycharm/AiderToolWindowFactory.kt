@@ -64,18 +64,8 @@ class AiderToolWindowFactory : ToolWindowFactory {
     private fun startAiderService() {
         try {
             aiderService.start()
-            
-            // Start reading output in a separate thread
-            Thread {
-                while (true) {
-                    val output = aiderService.readOutput()
-                    if (output != null) {
-                        SwingUtilities.invokeLater {
-                            outputArea.append(output + "\n")
-                        }
-                    }
-                }
-            }.start()
+            outputArea.append("Aider started in Terminal window.\n")
+            outputArea.append("Please switch to the Terminal window to interact with Aider.\n")
         } catch (e: Exception) {
             outputArea.append("Error: ${e.message}\n")
             outputArea.append("Please ensure aider is installed. You can install it with:\n")
