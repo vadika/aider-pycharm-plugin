@@ -13,9 +13,15 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.pty4j:pty4j:0.12.13")
-    implementation("net.java.dev.jna:jna:5.12.1")
-    implementation("net.java.dev.jna:jna-platform:5.12.1")
+    implementation("org.jetbrains.pty4j:pty4j:0.12.13") {
+        exclude(group = "net.java.dev.jna")
+    }
+    implementation("net.java.dev.jna:jna:5.12.1") {
+        isTransitive = true
+    }
+    implementation("net.java.dev.jna:jna-platform:5.12.1") {
+        isTransitive = true
+    }
 }
 
 configurations.all {
