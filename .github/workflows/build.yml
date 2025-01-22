@@ -33,3 +33,14 @@ jobs:
       with:
         name: plugin-dist
         path: build/distributions/*.zip
+        
+    - name: Create Release
+      if: github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/distributions/*.zip
+        name: "Latest Build"
+        tag_name: "latest"
+        prerelease: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
