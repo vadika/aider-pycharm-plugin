@@ -25,6 +25,8 @@ class AiderToolWindowFactory : ToolWindowFactory {
             isEditable = false
             lineWrap = true
             wrapStyleWord = true
+            rows = 20  // Set initial height
+            columns = 50  // Set initial width
         }
         (outputArea.caret as DefaultCaret).updatePolicy = DefaultCaret.ALWAYS_UPDATE
         
