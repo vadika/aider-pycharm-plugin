@@ -17,8 +17,8 @@ import javax.swing.text.DefaultCaret
 
 class AiderToolWindowFactory : ToolWindowFactory {
     private lateinit var aiderService: AiderService
-    private lateinit var outputArea: JTextArea
-    private lateinit var inputField: JTextField
+    private lateinit var outputArea: JBTextArea
+    private lateinit var inputField: JBTextField
     
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
         aiderService = AiderService(project)
