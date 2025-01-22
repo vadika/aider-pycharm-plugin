@@ -3,11 +3,8 @@ package com.aider.pycharm
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowManager
-import com.intellij.terminal.JBTerminalWidget
-import com.intellij.openapi.wm.impl.TerminalView
-import com.intellij.terminal.JBTerminalSystemSettingsProviderBase
-import com.intellij.terminal.JBTerminalWidget
-import com.intellij.terminal.TerminalExecutionConsole
+import org.jetbrains.plugins.terminal.ShellTerminalWidget
+import org.jetbrains.plugins.terminal.TerminalView
 import java.io.IOException
 
 class AiderService(private val project: Project) {
