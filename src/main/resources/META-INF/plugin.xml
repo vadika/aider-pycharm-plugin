@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.aider.pycharm</id>
     <name>Aider Chat</name>
-    <vendor>Your Name</vendor>
+    <vendor>Vadim Likholetov</vendor>
     <description>Aider Chat Integration for PyCharm</description>
 
     <depends>com.intellij.modules.platform</depends>
