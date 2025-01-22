@@ -19,13 +19,17 @@ class AiderService(private val project: Project) {
             // Configure JNA
             System.setProperty("jna.nosys", "true")
             System.setProperty("jna.nounpack", "true")
-            System.setProperty("jna.platform.library.name", "c")
+            System.setProperty("jna.debug_load", "true")
+            System.setProperty("jna.debug_load.jna", "true")
             
-            // Initialize JNA
+            // Force JNA initialization
             try {
-                Class.forName("com.sun.jna.Native")
+                val native = Class.forName("com.sun.jna.Native")
+                val method = native.getDeclaredMethod("load", String::class.java)
+                method.isAccessible = true
+                method.invoke(null, "c")
             } catch (e: Exception) {
-                throw IOException("Failed to initialize JNA: ${e.message}")
+                throw IOException("Failed to initialize JNA: ${e.message}", e)
             }
             
             // Try to find aider in common locations
