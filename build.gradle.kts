@@ -56,11 +56,27 @@ tasks {
     patchPluginXml {
         sinceBuild.set("231")
         untilBuild.set("243.*")
+        changeNotes.set("""
+            Initial release:
+            - Aider integration in PyCharm
+            - Dedicated tool window
+            - Settings configuration
+            - Direct CLI tool integration
+        """.trimIndent())
     }
 
     // Ensure compatibility with Java 17
     withType<JavaCompile> {
         sourceCompatibility = "17"
         targetCompatibility = "17"
+        options.encoding = "UTF-8"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    wrapper {
+        gradleVersion = "8.5"
     }
 }
