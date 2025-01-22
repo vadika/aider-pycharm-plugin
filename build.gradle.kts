@@ -13,15 +13,11 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.pty4j:pty4j:0.12.13") {
-        exclude(group = "net.java.dev.jna")
-    }
-    implementation("net.java.dev.jna:jna:5.12.1") {
-        isTransitive = true
-    }
-    implementation("net.java.dev.jna:jna-platform:5.12.1") {
-        isTransitive = true
-    }
+    implementation("org.jetbrains.pty4j:pty4j:0.12.13")
+    implementation("net.java.dev.jna:jna:5.13.0")
+    implementation("net.java.dev.jna:jna-platform:5.13.0")
+    runtimeOnly("net.java.dev.jna:jna:5.13.0:natives-macos")
+    runtimeOnly("net.java.dev.jna:jna:5.13.0:natives-macos-aarch64")
 }
 
 configurations.all {

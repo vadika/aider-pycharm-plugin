@@ -17,11 +17,16 @@ class AiderService(private val project: Project) {
     fun start() {
         try {
             // Configure JNA
-            System.setProperty("jna.boot.library.path", "")
             System.setProperty("jna.nosys", "true")
             System.setProperty("jna.nounpack", "true")
-            System.setProperty("jna.platform.library.path", "")
-            System.setProperty("jna.library.path", "")
+            System.setProperty("jna.debug_load", "true")
+            
+            // Force JNA native init
+            try {
+                com.sun.jna.Native.register(com.sun.jna.NativeLibrary.getInstance("c"))
+            } catch (e: Exception) {
+                // Ignore any errors, we just want to trigger native library loading
+            }
             
             // Try to find aider in common locations
             val aiderPath = findAiderPath() ?: throw IOException("Could not find aider executable. Please ensure it is installed and in your PATH")
