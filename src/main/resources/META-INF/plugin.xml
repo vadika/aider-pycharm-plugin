@@ -21,4 +21,13 @@
                 displayName="Aider Chat"
                 id="com.aider.pycharm.settings"/>
     </extensions>
+
+    <actions>
+        <action id="com.aider.pycharm.OpenSettings"
+                class="com.aider.pycharm.OpenAiderSettingsAction"
+                text="Aider Settings"
+                description="Open Aider settings dialog">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
