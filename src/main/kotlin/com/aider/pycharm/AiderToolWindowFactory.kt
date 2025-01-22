@@ -7,7 +7,6 @@ import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.components.JBScrollPane
 import com.intellij.ui.components.JBTextArea
 import com.intellij.ui.components.JBTextField
-import javax.swing.JTextArea
 import java.awt.BorderLayout
 import java.awt.Font
 import java.awt.Insets
