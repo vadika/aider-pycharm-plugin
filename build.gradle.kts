@@ -11,10 +11,16 @@ repositories {
     mavenCentral()
 }
 
+// Configure Java compatibility
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 intellij {
     version.set("2023.1")
-    type.set("PC")
-    plugins.set(listOf())
+    type.set("PC") // PyCharm Community Edition
+    plugins.set(listOf("python-ce")) // Add Python plugin dependency
 }
 
 tasks {
@@ -25,5 +31,11 @@ tasks {
     patchPluginXml {
         sinceBuild.set("231")
         untilBuild.set("233.*")
+    }
+
+    // Ensure compatibility with Java 17
+    withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
     }
 }
