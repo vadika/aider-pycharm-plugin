@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("org.jetbrains.pty4j:pty4j:0.12.13")
+}
+
 // Configure Java compatibility
 java {
     sourceCompatibility = JavaVersion.VERSION_17

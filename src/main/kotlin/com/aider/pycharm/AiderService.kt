@@ -1,10 +1,13 @@
 package com.aider.pycharm
 
 import com.intellij.openapi.project.Project
+import com.pty4j.PtyProcess
+import com.pty4j.PtyProcessBuilder
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
 import java.io.PrintWriter
+import java.nio.charset.StandardCharsets
 
 class AiderService(private val project: Project) {
     private var process: Process? = null
@@ -16,11 +19,13 @@ class AiderService(private val project: Project) {
             // Try to find aider in common locations
             val aiderPath = findAiderPath() ?: throw IOException("Could not find aider executable. Please ensure it is installed and in your PATH")
             
-            val processBuilder = ProcessBuilder(aiderPath)
-            processBuilder.directory(project.basePath?.let { java.io.File(it) })
-            processBuilder.redirectErrorStream(true)
+            val processBuilder = PtyProcessBuilder()
+                .setCommand(arrayOf(aiderPath))
+                .setDirectory(project.basePath)
+                .setConsole(true)
+                .setRedirectErrorStream(true)
             
-            process = processBuilder.start()
+            process = processBuilder.start() as PtyProcess
             inputWriter = PrintWriter(process!!.outputStream, true)
             outputReader = BufferedReader(InputStreamReader(process!!.inputStream))
         } catch (e: Exception) {
