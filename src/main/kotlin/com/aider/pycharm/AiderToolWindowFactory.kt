@@ -11,6 +11,10 @@ import java.awt.Insets
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
 import javax.swing.text.DefaultCaret
+import javax.swing.JTextArea
+import javax.swing.JTextField
+import javax.swing.JPanel
+import javax.swing.JScrollPane
 
 class AiderToolWindowFactory : ToolWindowFactory {
     private lateinit var aiderService: AiderService
