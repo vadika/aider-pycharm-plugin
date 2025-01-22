@@ -16,6 +16,10 @@ class AiderService(private val project: Project) {
     
     fun start() {
         try {
+            // Set JNA library path
+            System.setProperty("jna.nosys", "true")
+            System.setProperty("jna.nounpack", "true")
+            
             // Try to find aider in common locations
             val aiderPath = findAiderPath() ?: throw IOException("Could not find aider executable. Please ensure it is installed and in your PATH")
             
@@ -25,7 +29,7 @@ class AiderService(private val project: Project) {
                 .setConsole(true)
                 .setRedirectErrorStream(true)
             
-            process = processBuilder.start() as PtyProcess
+            process = processBuilder.start()
             inputWriter = PrintWriter(process!!.outputStream, true)
             outputReader = BufferedReader(InputStreamReader(process!!.inputStream))
         } catch (e: Exception) {
