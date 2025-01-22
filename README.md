@@ -9,7 +9,10 @@ A PyCharm plugin that integrates [Aider](https://aider.chat), an AI pair program
 - Dedicated tool window for Aider interactions
 - Seamless integration with your existing PyCharm workflow
 
-![Aider PyCharm Plugin Interface](docs/images/aider-pycharm-plugin.png)
+![Aider PyCharm Plugin Interface](docs/images/s1.png)
+
+
+![Aider PyCharm Settings](docs/images/s2.png)
 
 ## Installation
 
