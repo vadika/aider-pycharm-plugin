@@ -40,6 +40,32 @@ Access Aider settings through:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Building from Source
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/aider-pycharm-plugin.git
+   cd aider-pycharm-plugin
+   ```
+
+2. Build using Gradle:
+   ```bash
+   ./gradlew build
+   ```
+
+3. The plugin will be built to:
+   `build/distributions/aider-pycharm-plugin-1.0-SNAPSHOT.zip`
+
+4. To run/debug in a development instance of PyCharm:
+   ```bash
+   ./gradlew runIde
+   ```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Development Requirements
+- JDK 17 or later
+- Gradle (included via wrapper)
+- PyCharm CE/Pro 2023.1+
