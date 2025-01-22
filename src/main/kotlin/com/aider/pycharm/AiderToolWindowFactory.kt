@@ -4,17 +4,16 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
-import javax.swing.*
+import com.intellij.ui.components.JBScrollPane
+import com.intellij.ui.components.JBTextArea
+import com.intellij.ui.components.JBTextField
 import java.awt.BorderLayout
 import java.awt.Font
 import java.awt.Insets
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
-import javax.swing.text.DefaultCaret
-import javax.swing.JTextArea
-import javax.swing.JTextField
 import javax.swing.JPanel
-import javax.swing.JScrollPane
+import javax.swing.text.DefaultCaret
 
 class AiderToolWindowFactory : ToolWindowFactory {
     private lateinit var aiderService: AiderService
@@ -27,7 +26,7 @@ class AiderToolWindowFactory : ToolWindowFactory {
         val panel = JPanel(BorderLayout())
         
         // Output area
-        outputArea = JTextArea().apply {
+        outputArea = JBTextArea().apply {
             isEditable = false
             lineWrap = true
             wrapStyleWord = true
@@ -39,7 +38,7 @@ class AiderToolWindowFactory : ToolWindowFactory {
         (outputArea.caret as DefaultCaret).updatePolicy = DefaultCaret.ALWAYS_UPDATE
         
         // Input field
-        inputField = JTextField().apply {
+        inputField = JBTextField().apply {
             addKeyListener(object : KeyListener {
                 override fun keyTyped(e: KeyEvent) {}
                 override fun keyPressed(e: KeyEvent) {
@@ -55,7 +54,7 @@ class AiderToolWindowFactory : ToolWindowFactory {
             })
         }
         
-        panel.add(JScrollPane(outputArea), BorderLayout.CENTER)
+        panel.add(JBScrollPane(outputArea), BorderLayout.CENTER)
         panel.add(inputField, BorderLayout.SOUTH)
         
         val content = ContentFactory.getInstance().createContent(panel, "", false)
