@@ -11,12 +11,24 @@ A PyCharm plugin that integrates [Aider](https://aider.chat), an AI pair program
 
 ## Installation
 
+### From JetBrains Marketplace (Recommended)
 1. Open PyCharm
 2. Go to Settings/Preferences → Plugins
 3. Click "Browse repositories..."
 4. Search for "Aider"
 5. Click "Install"
 6. Restart PyCharm
+
+### Latest Development Build
+You can download the latest development build from our [GitHub Releases](https://github.com/vadika/aider-pycharm-plugin/releases/tag/latest).
+To install:
+1. Open PyCharm
+2. Go to Settings/Preferences → Plugins
+3. Click the gear icon and select "Install Plugin from Disk..."
+4. Navigate to the downloaded .zip file and select it
+5. Restart PyCharm
+
+Note: Development builds may be unstable and are recommended for testing purposes only.
 
 ## Requirements
 
