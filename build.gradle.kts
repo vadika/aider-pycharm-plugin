@@ -30,7 +30,7 @@ tasks {
     
     patchPluginXml {
         sinceBuild.set("231")
-        untilBuild.set("233.*")
+        untilBuild.set("243.*")
     }
 
     // Ensure compatibility with Java 17
