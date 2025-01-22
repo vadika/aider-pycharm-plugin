@@ -19,13 +19,13 @@ class AiderService(private val project: Project) {
             // Configure JNA
             System.setProperty("jna.nosys", "true")
             System.setProperty("jna.nounpack", "true")
-            System.setProperty("jna.debug_load", "true")
+            System.setProperty("jna.platform.library.name", "c")
             
-            // Force JNA native init
+            // Initialize JNA
             try {
-                com.sun.jna.Native.register(com.sun.jna.NativeLibrary.getInstance("c"))
+                Class.forName("com.sun.jna.Native")
             } catch (e: Exception) {
-                // Ignore any errors, we just want to trigger native library loading
+                throw IOException("Failed to initialize JNA: ${e.message}")
             }
             
             // Try to find aider in common locations
