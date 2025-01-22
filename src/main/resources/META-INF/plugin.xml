@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>com.aider.pycharm</id>
+    <name>Aider Chat Integration</name>
+    <vendor>Your Name</vendor>
+    <description>PyCharm integration for aider-chat</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.python</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Aider Chat" 
+                    secondary="true"
+                    icon="AllIcons.General.Chat"
+                    anchor="right"
+                    factoryClass="com.aider.pycharm.AiderToolWindowFactory"/>
+    </extensions>
+</idea-plugin>
